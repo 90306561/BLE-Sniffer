@@ -108,6 +108,7 @@ class BLEClientViewController: UIViewController, CBCentralManagerDelegate, CBPer
             if let data = characteristic.value, let receivedString = String(data: data, encoding: .utf8) {
                 print("Received: \(receivedString)")
                 if (receivedString == "ACK") {
+                    sleep(2)
                     status.text = "ACK received, ready to receive data"
                     sleep(2)
                     peripheral.readValue(for: characteristic)

@@ -113,6 +113,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
         if (finAck) {
             request.value = "Final ACK".data(using: .utf8)
             peripheralManager?.respond(to: request, withResult: .success)
+            sleep(4)
             toggleAdvertising(toggleButton)
         }
         else if (synAckReceived) {
@@ -140,9 +141,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
                 if let data = request.value, let receivedString = String(data: data, encoding: .utf8) {
                     print("Received: \(receivedString)")
                     if (receivedString == "SYN+ACK") {
-                        sleep(2)
                         onOff.text = "Received a SYN+ACK. Sending ACK..."
-                        //synAckReceived = true
                     }
                     else {
                         finAck = true
@@ -151,17 +150,6 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
                     }
                 }
             }
-        }
-    }
-    
-    func sendNotificationToClient(data: String) {
-        if let responseData = data.data(using: .utf8) {
-            let didSendValue = peripheralManager?.updateValue(
-                responseData,
-                for: characteristic!,
-                onSubscribedCentrals: nil
-            )
-            print("Did send value: \(didSendValue == true ? "yes" : "no")")
         }
     }
     
