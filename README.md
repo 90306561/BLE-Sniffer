@@ -1,4 +1,4 @@
-** View Demo video here [demo link](https://drive.google.com/file/d/17T_PXZRnMbexFQY-watPA_k03iEQYNSA/view?usp=sharing)
+** View Demo video here [demo link](https://drive.google.com/file/d/17T_PXZRnMbexFQY-watPA_k03iEQYNSA/view?usp=sharing) **
 
 To test this project, open Xcode and select Clone Git Repository, and enter this URL. To run, you will need two iOS devices (I tested with an iPhone 8 and an iPhone 13, an iPad should, but a Macbook won't work, neither will running it on a simulator as it needs the bluetooth low energy capability). On one of the devices adjust your port if you want (or leave it to the default of 180D). Then click on the giant blue button, this will effectively start sending a SYN message, and will wait for a device to respond back. On your other device open up, change the port to the same one used on the first device and go to the receive data tab (which acts as a server). This device should now receive the SYN message and send a SYN+ACK message back, wait until it receives an ACK message and then will receive the message. 
 
