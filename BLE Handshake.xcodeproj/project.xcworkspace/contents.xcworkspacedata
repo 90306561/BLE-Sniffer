@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/erikpeterson/Desktop/BLE Sniffer/BLE Handshake.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

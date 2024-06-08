@@ -92,15 +92,12 @@ class BLEClientViewController: UIViewController, CBCentralManagerDelegate, CBPer
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
                 if characteristic.uuid == characteristicUUID {
+                    status.text = "SYN+ACK Sent..."
                     sleep(2)
                     sendData(to: peripheral, data: "SYN+ACK")
-                    status.text = "SYN+ACK Sent..."
                     // Notifies the client that the initial syn has been read, equivalent of syn+ack
-                    sleep(2)
                     peripheral.readValue(for: characteristic)
                     peripheral.setNotifyValue(true, for: characteristic)
-                    sleep(2)
-                    peripheral.readValue(for: characteristic)
                 }
             }
         }
@@ -112,9 +109,18 @@ class BLEClientViewController: UIViewController, CBCentralManagerDelegate, CBPer
                 print("Received: \(receivedString)")
                 if (receivedString == "ACK") {
                     status.text = "ACK received, ready to receive data"
-                } else {
+                    sleep(2)
+                    peripheral.readValue(for: characteristic)
+                }
+                else if (receivedString == "Final ACK") {
+                    sleep(2)
+                    status.text = "Final ACK received."
+                }
+                else {
                     tempMessage.text = receivedString
-                    sendData(to: peripheral, data: "Received Message")
+                    sleep(2)
+                    sendData(to: peripheral, data: "FIN+ACK")
+                    peripheral.readValue(for: characteristic)
                 }
             }
         }

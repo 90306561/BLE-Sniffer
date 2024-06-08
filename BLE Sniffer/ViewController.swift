@@ -14,6 +14,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
     @IBOutlet var message: UITextField!
     @IBOutlet var manualPort: UITextField!
     var toggleButton: UIButton!
+    var finAck = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
         if (data == "Dismissed BLEClientViewController") {
             toggleClient.selectedSegmentIndex = 0
             synAckReceived = false
+            sleep(2)
             onOff.text = "Server Disconnected"
         }
     }
@@ -108,7 +110,12 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
      After server sends the syn+ack (acknowledgment that they read the initial syn, we will send them the data
      */
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
-        if (synAckReceived) {
+        if (finAck) {
+            request.value = "Final ACK".data(using: .utf8)
+            peripheralManager?.respond(to: request, withResult: .success)
+            toggleAdvertising(toggleButton)
+        }
+        else if (synAckReceived) {
             if request.characteristic.uuid == characteristicUUID {
                 if (message.text == "") { message.text = "hello world"}
                 request.value = message.text?.data(using: .utf8)
@@ -119,6 +126,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
             if request.characteristic.uuid == characteristicUUID {
                 request.value = "ACK".data(using: .utf8)
                 peripheralManager?.respond(to: request, withResult: .success)
+                sleep(2)
                 synAckReceived = true
             }
         }
@@ -132,11 +140,13 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
                 if let data = request.value, let receivedString = String(data: data, encoding: .utf8) {
                     print("Received: \(receivedString)")
                     if (receivedString == "SYN+ACK") {
+                        sleep(2)
                         onOff.text = "Received a SYN+ACK. Sending ACK..."
                         //synAckReceived = true
                     }
                     else {
-                        toggleAdvertising(toggleButton)
+                        finAck = true
+                        sleep(2)
                         onOff.text = "Server received message"
                     }
                 }
