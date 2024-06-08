@@ -16,6 +16,11 @@
 		F238A8C32C10E90600151B40 /* BLE_SnifferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238A8C22C10E90600151B40 /* BLE_SnifferTests.swift */; };
 		F238A8CD2C10E90600151B40 /* BLE_SnifferUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238A8CC2C10E90600151B40 /* BLE_SnifferUITests.swift */; };
 		F238A8CF2C10E90600151B40 /* BLE_SnifferUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238A8CE2C10E90600151B40 /* BLE_SnifferUITestsLaunchTests.swift */; };
+		F238A8DC2C112A2600151B40 /* BLEClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238A8DB2C112A2600151B40 /* BLEClientViewController.swift */; };
+		F238A8E02C125F6400151B40 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F238A8DF2C125F6400151B40 /* SDWebImage */; };
+		F238A8E22C125F6700151B40 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F238A8E12C125F6700151B40 /* SDWebImageMapKit */; };
+		F238A8E42C125F9400151B40 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F238A8E32C125F9400151B40 /* SDWebImage */; };
+		F238A8E62C125F9400151B40 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F238A8E52C125F9400151B40 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,7 @@
 		F238A8C82C10E90600151B40 /* BLE SnifferUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLE SnifferUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F238A8CC2C10E90600151B40 /* BLE_SnifferUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_SnifferUITests.swift; sourceTree = "<group>"; };
 		F238A8CE2C10E90600151B40 /* BLE_SnifferUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_SnifferUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F238A8DB2C112A2600151B40 /* BLEClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEClientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F238A8E62C125F9400151B40 /* SDWebImageMapKit in Frameworks */,
+				F238A8E42C125F9400151B40 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F238A8E22C125F6700151B40 /* SDWebImageMapKit in Frameworks */,
+				F238A8E02C125F6400151B40 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +93,7 @@
 				F238A8C12C10E90600151B40 /* BLE SnifferTests */,
 				F238A8CB2C10E90600151B40 /* BLE SnifferUITests */,
 				F238A8A92C10E90400151B40 /* Products */,
+				F238A8DE2C125F5F00151B40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +113,7 @@
 				F238A8AB2C10E90400151B40 /* AppDelegate.swift */,
 				F238A8AD2C10E90400151B40 /* SceneDelegate.swift */,
 				F238A8AF2C10E90400151B40 /* ViewController.swift */,
+				F238A8DB2C112A2600151B40 /* BLEClientViewController.swift */,
 				F238A8B12C10E90400151B40 /* Main.storyboard */,
 				F238A8B42C10E90600151B40 /* Assets.xcassets */,
 				F238A8B62C10E90600151B40 /* LaunchScreen.storyboard */,
@@ -127,6 +139,13 @@
 			path = "BLE SnifferUITests";
 			sourceTree = "<group>";
 		};
+		F238A8DE2C125F5F00151B40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +162,10 @@
 			dependencies = (
 			);
 			name = "BLE Sniffer";
+			packageProductDependencies = (
+				F238A8E32C125F9400151B40 /* SDWebImage */,
+				F238A8E52C125F9400151B40 /* SDWebImageMapKit */,
+			);
 			productName = "BLE Sniffer";
 			productReference = F238A8A82C10E90400151B40 /* BLE Sniffer.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +202,10 @@
 				F238A8CA2C10E90600151B40 /* PBXTargetDependency */,
 			);
 			name = "BLE SnifferUITests";
+			packageProductDependencies = (
+				F238A8DF2C125F6400151B40 /* SDWebImage */,
+				F238A8E12C125F6700151B40 /* SDWebImageMapKit */,
+			);
 			productName = "BLE SnifferUITests";
 			productReference = F238A8C82C10E90600151B40 /* BLE SnifferUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -206,7 +233,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F238A8A32C10E90400151B40 /* Build configuration list for PBXProject "BLE Sniffer" */;
+			buildConfigurationList = F238A8A32C10E90400151B40 /* Build configuration list for PBXProject "BLE Handshake" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -215,6 +242,9 @@
 				Base,
 			);
 			mainGroup = F238A89F2C10E90400151B40;
+			packageReferences = (
+				F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = F238A8A92C10E90400151B40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +290,7 @@
 			files = (
 				F238A8B02C10E90400151B40 /* ViewController.swift in Sources */,
 				F238A8AC2C10E90400151B40 /* AppDelegate.swift in Sources */,
+				F238A8DC2C112A2600151B40 /* BLEClientViewController.swift in Sources */,
 				F238A8AE2C10E90400151B40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -425,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -450,6 +481,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,6 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +603,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F238A8A32C10E90400151B40 /* Build configuration list for PBXProject "BLE Sniffer" */ = {
+		F238A8A32C10E90400151B40 /* Build configuration list for PBXProject "BLE Handshake" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F238A8D02C10E90600151B40 /* Debug */,
@@ -607,6 +640,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F238A8DF2C125F6400151B40 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		F238A8E12C125F6700151B40 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		F238A8E32C125F9400151B40 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		F238A8E52C125F9400151B40 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F238A8DD2C125F3A00151B40 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F238A8A02C10E90400151B40 /* Project object */;
 }
