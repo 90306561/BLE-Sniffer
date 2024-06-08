@@ -119,6 +119,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
         else if (synAckReceived) {
             if request.characteristic.uuid == characteristicUUID {
                 if (message.text == "") { message.text = "hello world"}
+                onOff.text = "Sending message: \(message.text!)"
                 request.value = message.text?.data(using: .utf8)
                 peripheralManager?.respond(to: request, withResult: .success)
             }
@@ -143,10 +144,11 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, BLEClientVi
                     if (receivedString == "SYN+ACK") {
                         onOff.text = "Received a SYN+ACK. Sending ACK..."
                     }
-                    else {
+                    else if (receivedString == "FIN+ACK"){
+                        onOff.text = "Server received message. FIN+ACK received, sending final ACK..."
+                        sleep(2)
                         finAck = true
                         sleep(2)
-                        onOff.text = "Server received message"
                     }
                 }
             }
